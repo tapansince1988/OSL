@@ -1,0 +1,8 @@
+<p><%= link_to("Back to All stores", {:action => 'index'}) %></p>
+<p>Name : <%= s.text_field(:name) %></p>
+<p>Address : <%= s.text_field(:address) %></p>
+<p>Pin code : <%= s.text_field(:pin) %></p>
+<p>Phone No. : <%= s.text_field(:phone) %></p>
+<p>Website link : <%= s.text_field(:website) %></p>
+<p>Tags : <%= s.text_field(:tags) %></p>
+<p>City : <%= s.select :city_id, options_for_select(City.all.map{|s|[s.name, s.id]}) %></p>

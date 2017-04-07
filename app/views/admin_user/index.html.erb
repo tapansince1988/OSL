@@ -1,0 +1,12 @@
+<% if @usr.empty? %>
+    <h3>There is no user currently. Please create one first.</h3>
+    <p><%= link_to("Add New Admin User", {:action => 'new'}) %></p>
+<% else %>
+    <p><%= link_to("Add New Admin User", {:action => 'new'}) %></p>
+    <% @usr.each do |usr|%>
+        <%= usr.name %><br>
+        <%= usr.email %><br>
+        <%= link_to("Edit", {:action => 'edit', :id => usr.id}) %>
+        <%= link_to("delete", {:action => 'delete', :id => usr.id}) %>
+    <% end %>
+<% end %>

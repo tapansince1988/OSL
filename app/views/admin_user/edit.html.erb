@@ -1,0 +1,6 @@
+<%= form_for(:admin_user, :url => {:action => "update", :id => @usr.id}, :html => {:multipart => true}) do |user| %>
+    <%= render(:partial => 'form', :locals => {:u => user}) %>
+    <p class="text-center">
+      <%= submit_tag("Update") %>
+    </p>
+<% end %>

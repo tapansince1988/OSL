@@ -1,0 +1,6 @@
+<%= form_for(:store, :url => {:action => "update", :id => @store.id}, :html => {:multipart => true}) do |store| %>
+    <%= render(:partial => 'form', :locals => {:s => store}) %>
+    <p class="text-center">
+      <%= submit_tag("Update") %>
+    </p>
+<% end %>

@@ -1,0 +1,14 @@
+<% if @store.empty? %>
+    <h3>There is no stores defined currently. Please create one first.</h3>
+    <p><%= link_to("Add New Store", {:action => 'new'}) %></p>
+<% else %>
+    <p><%= link_to("Add New Store", {:action => 'new'}) %></p>
+    <% @store.each do |s|%>
+        <P>
+          <%= s.name %>
+          <%= link_to("View", {:action => 'show', :id => s.id}) %>
+          <%= link_to("Edit", {:action => 'edit', :id => s.id}) %>
+          <%= link_to("delete", {:action => 'delete', :id => s.id}) %>
+        </P>
+    <% end %>
+<% end %>

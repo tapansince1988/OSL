@@ -1,0 +1,11 @@
+<% if @city.empty? %>
+    <h3>There is no city defined currently. Please create one first.</h3>
+    <p><%= link_to("Add New City", {:action => 'new'}) %></p>
+<% else %>
+    <p><%= link_to("Add New City", {:action => 'new'}) %></p>
+    <% @city.each do |c|%>
+        <%= c.name %><br>
+        <%= link_to("Edit", {:action => 'edit', :id => c.id}) %>
+        <%= link_to("delete", {:action => 'destroy', :id => c.id}) %>
+    <% end %>
+<% end %>

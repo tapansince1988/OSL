@@ -1,0 +1,8 @@
+<h4>Are you sure you want to delete the option permanently?</h4><br>
+<p><%= link_to("Back to All stores", {:action => 'index'}) %></p>
+<p>Name : <%= @store.name %></p>
+<p>Address : <%= @store.address %></p>
+<p>Pin code : <%= @store.pin %></p>
+<p>Phone No. : <%= @store.phone %></p>
+<p>Website link : <%= @store.website %></p>
+<%= link_to("Delete", {:action => 'destroy', :id => @store.id}) %><br>
