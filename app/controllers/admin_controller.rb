@@ -41,5 +41,4 @@ class AdminController < ApplicationController
         params.require(:admin_user).permit(:name, :email, :password)
     end
 
-
 end

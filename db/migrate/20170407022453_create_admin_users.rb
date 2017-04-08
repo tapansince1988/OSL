@@ -6,5 +6,6 @@ class CreateAdminUsers < ActiveRecord::Migration[5.0]
         t.string :password_digest
         t.timestamps
     end
+    AdminUser.create :name => "Test User", :email => "test@test.com", :password => "123456"
   end
 end

@@ -20,7 +20,7 @@ class Store < ApplicationRecord
               :numericality => {:only_integer => true, :message => "Pin should contain number only "}
 
     def self.search(search)
-         where("name LIKE ? or pin LIKE ? or tags LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
+        where("name LIKE ? or pin LIKE ? or tags LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
     end
 
 end
