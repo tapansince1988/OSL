@@ -1,2 +1,23 @@
-<h1>Site#index</h1>
-<p>Find me in app/views/site/index.html.erb</p>
+<div class="column small-5 small-centered spacer">
+  <%= form_tag("site#index", :method => "get", id: "search-form") do %>
+        <div class="column small-9 spacer">
+          <%= text_field_tag :search, params[:search], placeholder: "Search by : Name, City, Pin-Code, Tag" %>
+          </div>
+      <%= submit_tag "Search", :class => "button", :name => nil %>
+  <% end %>
+</div>
+<p>&nbsp;</p>
+<div class="column small-centered spacer">
+<% if @site.blank? %>
+    <h5>There is no stores containing <%= params[:search] %>.</h5>
+<% else %>
+    <% @site.each do |s|%>
+        <div class="column small-2 float-left spacer">
+          <div class="callout secondary shadow">
+            <p class="text-center"><%= s.name %></p>
+            <p class="text-center"><%= link_to("View", {:action => 'show', :id => s.id}, :class => "button") %></p>
+            </div>
+          </div>
+    <% end %>
+<% end %>
+  </div>

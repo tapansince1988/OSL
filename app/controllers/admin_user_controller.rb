@@ -2,7 +2,7 @@ class AdminUserController < ApplicationController
 
     layout 'admin'
 
-    # before_action :confirm_logged_in
+    before_action :confirm_logged_in
 
     def index
         @usr = AdminUser.all

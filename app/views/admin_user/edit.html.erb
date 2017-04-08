@@ -1,6 +1,25 @@
-<%= form_for(:admin_user, :url => {:action => "update", :id => @usr.id}, :html => {:multipart => true}) do |user| %>
-    <%= render(:partial => 'form', :locals => {:u => user}) %>
-    <p class="text-center">
-      <%= submit_tag("Update") %>
-    </p>
-<% end %>
+<% @page_heading = "Edit Admin User." %>
+
+<style>
+  .field_with_errors input {
+    border-color: red;
+  }
+</style>
+
+
+<div class="column spacer"><%= link_to("Back to All Users", {:action => 'index'}, :class => "button") %></div>
+
+<div>
+  <%= form_for(:admin_user, :url => {:action => "update", :id => @usr.id}, :html => {:multipart => true}) do |user| %>
+      <%= render(:partial => 'form', :locals => {:u => user}) %>
+      <p class="text-center">
+        <%= submit_tag("Update", :class => "button") %>
+      </p>
+      <% if @usr.errors.any? %>
+          <% @usr.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+          <% end %>
+      <% end %>
+      <p>&nbsp;</p><P>&nbsp;</P>
+  <% end %>
+</div>

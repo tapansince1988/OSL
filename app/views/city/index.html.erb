@@ -1,11 +1,33 @@
+<style>
+  ul.tabs li {
+    float: none !important;
+    display: inline-block;
+  }
+</style>
+
 <% if @city.empty? %>
+    <div class="column small-9 spacer">
     <h3>There is no city defined currently. Please create one first.</h3>
-    <p><%= link_to("Add New City", {:action => 'new'}) %></p>
+      </div>
+    <div class="column spacer"><%= link_to("Add New City", {:action => 'new'}, :class => "button") %></div>
 <% else %>
-    <p><%= link_to("Add New City", {:action => 'new'}) %></p>
-    <% @city.each do |c|%>
-        <%= c.name %><br>
-        <%= link_to("Edit", {:action => 'edit', :id => c.id}) %>
-        <%= link_to("delete", {:action => 'destroy', :id => c.id}) %>
-    <% end %>
+    <div class="column spacer"><%= link_to("Add New City", {:action => 'new'}, :class => "button") %></div>
+
+    <table class="center">
+      <tr>
+        <th>NAME</th>
+        <th>&nbsp;</th>
+      </tr>
+      <% @city.each do |c|%>
+          <tr class="text-center">
+            <td><%= c.name %></td>
+            <td>
+              <%= link_to("Edit", {:action => 'edit', :id => c.id}, :class => "button") %>
+
+              <%= link_to("delete", {:action => 'destroy', :id => c.id}, :class => "button") %>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+
 <% end %>

@@ -1,2 +1,17 @@
-<p><%= link_to("Back to All Cities", {:action => 'index'}) %></p>
-<p>Name : <%= c.text_field(:name) %></p>
+<div class="column small-9 spacer">
+  <div class="callout secondary shadow">
+    <div class="row">
+      <div class="small-4 columns">
+        <label class="text-right middle"><%= c.label(:name, "NAME : ") %></label>
+      </div>
+      <div class="small-5 columns">
+        <%= c.text_field (:name) %>
+      </div>
+      <div class="small-2 columns">
+      </div>
+    </div>
+
+  </div>
+</div>
+<br>
+<br>

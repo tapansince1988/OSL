@@ -13,7 +13,12 @@ class StoreController < ApplicationController
     end
 
     def new
-        @store = Store.new
+        @city = City.all
+        if @city.empty?
+            redirect_to(:controller => 'city', :action => 'index')
+        else
+            @store = Store.new
+        end
     end
 
     def create
@@ -27,7 +32,12 @@ class StoreController < ApplicationController
     end
 
     def edit
-        @store = Store.find(params[:id])
+        @city = City.all
+        if @city.empty?
+            redirect_to(:controller => 'city', :action => 'index')
+        else
+            @store = Store.find(params[:id])
+        end
     end
 
     def update

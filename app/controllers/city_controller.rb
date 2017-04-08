@@ -38,6 +38,8 @@ class CityController < ApplicationController
 
     def destroy
         @city = City.find(params[:id])
+        @city.store.delete_all
+
         @city.destroy
         flash[:notice] = "City deleted Successfully."
         redirect_to(:action => 'index')

@@ -1,6 +1,25 @@
-<%= form_for(:city, :url => {:action => "update", :id => @city.id}, :html => {:multipart => true}) do |city| %>
-    <%= render(:partial => 'form', :locals => {:c => city}) %>
-    <p class="text-center">
-      <%= submit_tag("Update") %>
-    </p>
-<% end %>
+<% @page_heading = "Edit City." %>
+
+<style>
+  .field_with_errors input {
+    border-color: red;
+  }
+</style>
+
+
+<div class="column spacer"><%= link_to("Back to All Cities", {:action => 'index'}, :class => "button") %></div>
+
+<div>
+  <%= form_for(:city, :url => {:action => "update", :id => @city.id}, :html => {:multipart => true}) do |city| %>
+      <%= render(:partial => 'form', :locals => {:c => city}) %>
+      <p class="text-center">
+        <%= submit_tag("Update", :class => "button") %>
+      </p>
+      <% if @city.errors.any? %>
+          <% @city.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+          <% end %>
+      <% end %>
+      <p>&nbsp;</p><P>&nbsp;</P>
+  <% end %>
+</div>

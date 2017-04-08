@@ -1,6 +1,4 @@
-<% @page_heading = "Store" %>
-
-<div class="column small-9 spacer">
+<div class="column small-9 small-centered spacer">
   <div class="callout secondary shadow">
 
     <div class="row middle text-center">
@@ -8,7 +6,7 @@
         <label class="text-right middle"><%= label_tag(:name, "NAME : ") %></label>
       </div>
       <div class="small-6 columns">
-        <label class="text-left middle"><%= @store.name %></label>
+        <label class="text-left middle"><%= @site.name %></label>
       </div>
     </div>
 
@@ -17,7 +15,7 @@
         <label class="text-right middle"><%= label_tag(:address, "ADDRESS : ") %></label>
       </div>
       <div class="small-6 columns">
-        <label class="text-left middle"><%= @store.address %></label>
+        <label class="text-left middle"><%= @site.address %></label>
       </div>
     </div>
 
@@ -26,7 +24,7 @@
         <label class="text-right middle"><%= label_tag(:pin, "PIN CODE : ") %></label>
       </div>
       <div class="small-6 columns">
-        <label class="text-left middle"><%= @store.pin %></label>
+        <label class="text-left middle"><%= @site.pin %></label>
       </div>
     </div>
 
@@ -35,7 +33,7 @@
         <label class="text-right middle"><%= label_tag(:city_id, "CITY : ") %></label>
       </div>
       <div class="small-6 columns">
-        <label class="text-left middle"><% if !@store.city.nil? %><%= @store.city.name %><% end %></label>
+        <label class="text-left middle"><% if !@site.city.nil? %><%= @site.city.name %><% end %></label>
       </div>
     </div>
 
@@ -44,7 +42,7 @@
         <label class="text-right middle"><%= label_tag(:phone, "PHONE NUMBER : ") %></label>
       </div>
       <div class="small-6 columns">
-        <label class="text-left middle"><%= @store.phone %></label>
+        <label class="text-left middle"><%= @site.phone %></label>
       </div>
     </div>
 
@@ -53,7 +51,7 @@
         <label class="text-right middle"><%= label_tag(:website, "WEBSITE LINK : ") %></label>
       </div>
       <div class="small-6 columns">
-        <label class="text-left middle"><%= @store.website %></label>
+        <label class="text-left middle"><%= link_to(@site.website) %></label>
       </div>
     </div>
 
@@ -62,18 +60,9 @@
         <label class="text-right middle"><%= label_tag(:tags, "TAGS : ") %></label>
       </div>
       <div class="small-6 columns">
-        <label class="text-left middle"><%= @store.tags %></label>
+        <label class="text-left middle"><%= @site.tags %></label>
       </div>
     </div>
 
   </div>
 </div>
-
-<div class="column small-3">
-  <div class="row"><%= link_to("Back to All stores", {:action => 'index'}, :class => "button") %></div>
-  <div class="row"><%= link_to("Edit", {:action => 'edit', :id => @store.id}, :class => "button") %></div>
-  <div class="row"><%= link_to("Delete", {:action => 'delete', :id => @store.id}, :class => "button") %></div>
-</div>
-<p>&nbsp;</p>
-<P>&nbsp;</P>
-

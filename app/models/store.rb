@@ -19,4 +19,8 @@ class Store < ApplicationRecord
               :length => {is: 10, :message => "Phone Number should be of 10 digit long"},
               :numericality => {:only_integer => true, :message => "Pin should contain number only "}
 
+    def self.search(search)
+         where("name LIKE ? or pin LIKE ? or tags LIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
+    end
+
 end

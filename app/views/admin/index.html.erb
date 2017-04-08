@@ -1,5 +1,13 @@
-<h1>Select your choice</h1>
-<p><%= link_to("Manage Admin Users", :controller => 'admin_user', :action => 'index') %></p>
-<p><%= link_to("Manage Cities", :controller => 'city', :action => 'index') %></p>
-<p><%= link_to("Manage Stores", :controller => 'store', :action => 'index') %></p>
-<p><%= link_to("Log out", :controller => 'admin', :action => 'logout') %></p>
+<div class="column small-5 small-centered text-center spacer">
+  <h4>Select your choice</h4>
+</div>
+<p>&nbsp;</p>
+<div class="column small-4 text-center spacer">
+  <%= link_to("Manage Admin Users", {:controller => 'admin_user', :action => 'index'}, :class => "button") %>
+</div>
+<div class="column small-4 text-center spacer">
+  <%= link_to("Manage Cities", {:controller => 'city', :action => 'index'}, :class => "button") %>
+</div>
+<div class="column small-4 text-center spacer">
+  <%= link_to("Manage Stores", {:controller => 'store', :action => 'index'}, :class => "button") %>
+</div>

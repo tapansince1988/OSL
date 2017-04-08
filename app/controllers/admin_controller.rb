@@ -9,7 +9,7 @@ class AdminController < ApplicationController
     end
 
     def login
-        # render 'login', layout: false
+        render 'login', layout: 'application'
     end
 
     def attempt_login

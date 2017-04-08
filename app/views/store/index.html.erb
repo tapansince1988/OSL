@@ -1,14 +1,39 @@
+<style>
+  ul.tabs li {
+    float: none !important;
+    display: inline-block;
+  }
+</style>
+
 <% if @store.empty? %>
+    <div class="column small-12 spacer">
     <h3>There is no stores defined currently. Please create one first.</h3>
-    <p><%= link_to("Add New Store", {:action => 'new'}) %></p>
+      </div>
+    <div class="column spacer"><%= link_to("Add New Store", {:action => 'new'}, :class => "button") %></div>
 <% else %>
-    <p><%= link_to("Add New Store", {:action => 'new'}) %></p>
-    <% @store.each do |s|%>
-        <P>
-          <%= s.name %>
-          <%= link_to("View", {:action => 'show', :id => s.id}) %>
-          <%= link_to("Edit", {:action => 'edit', :id => s.id}) %>
-          <%= link_to("delete", {:action => 'delete', :id => s.id}) %>
-        </P>
-    <% end %>
+    <div class="column spacer"><%= link_to("Add New Store", {:action => 'new'}, :class => "button") %></div>
+
+    <table class="center">
+      <tr>
+        <th>NAME</th>
+        <th>ADDRESS</th>
+        <th>CITY</th>
+        <th>&nbsp;</th>
+      </tr>
+      <% @store.each do |s|%>
+          <tr class="text-center">
+            <td><%= s.name %></td>
+            <td><%= simple_format(truncate(s.address, length: 50)) %></td>
+            <td><% if !s.city.nil? %><%= s.city.name %><% end %></td>
+            <td>
+              <%= link_to("View", {:action => 'show', :id => s.id}, :class => "button") %>
+
+              <%= link_to("Edit", {:action => 'edit', :id => s.id}, :class => "button") %>
+
+              <%= link_to("delete", {:action => 'delete', :id => s.id}, :class => "button") %>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+
 <% end %>

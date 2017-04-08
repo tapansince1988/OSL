@@ -1,6 +1,24 @@
-<%= form_for(:city, :url => {:action => "create"}, :html => {:multipart => true}) do |city| %>
-    <%= render(:partial => 'form', :locals => {:c => city}) %>
-    <p class="text-center">
-      <%= submit_tag("Create New") %>
-    </p>
-<% end %>
+<% @page_heading = "Add a new City." %>
+
+<style>
+  .field_with_errors input {
+    border-color: red;
+  }
+</style>
+
+<div class="column spacer"><%= link_to("Back to All Cities", {:action => 'index'}, :class => "button") %></div>
+
+<div>
+  <%= form_for(:city, :url => {:action => "create"}, :html => {:multipart => true}) do |city| %>
+      <%= render(:partial => 'form', :locals => {:c => city}) %>
+      <p class="text-center">
+        <%= submit_tag("Create New", :class => "button") %>
+      </p>
+      <% if @city.errors.any? %>
+          <% @city.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+          <% end %>
+      <% end %>
+      <p>&nbsp;</p><P>&nbsp;</P>
+  <% end %>
+</div>

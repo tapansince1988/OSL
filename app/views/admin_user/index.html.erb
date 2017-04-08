@@ -1,12 +1,37 @@
+<style>
+  ul.tabs li {
+    float: none !important;
+    display: inline-block;
+  }
+</style>
+
 <% if @usr.empty? %>
+    <div class="column small-9 spacer">
     <h3>There is no user currently. Please create one first.</h3>
-    <p><%= link_to("Add New Admin User", {:action => 'new'}) %></p>
+      </div>
+    <div class="column spacer"><%= link_to("Add New Admin User", {:action => 'new'}, :class => "button") %></div>
 <% else %>
-    <p><%= link_to("Add New Admin User", {:action => 'new'}) %></p>
-    <% @usr.each do |usr|%>
-        <%= usr.name %><br>
-        <%= usr.email %><br>
-        <%= link_to("Edit", {:action => 'edit', :id => usr.id}) %>
-        <%= link_to("delete", {:action => 'delete', :id => usr.id}) %>
-    <% end %>
+    <div class="column spacer"><%= link_to("Add New Admin User", {:action => 'new'}, :class => "button") %></div>
+
+    <table class="center">
+      <tr>
+        <th>NAME</th>
+        <th>EMAIL</th>
+        <th>&nbsp;</th>
+      </tr>
+      <% @usr.each do |usr|%>
+          <tr class="text-center">
+            <td><%= usr.name %></td>
+            <td><%= usr.email %></td>
+            <td>
+              <%= link_to("Edit", {:action => 'edit', :id => usr.id}, :class => "button") %>
+
+              <% if(usr.id!=session[:user_id]) %>
+                  <%= link_to("delete", {:action => 'delete', :id => usr.id}, :class => "button") %>
+              <% end %>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+
 <% end %>

@@ -1,8 +1,83 @@
-<p><%= link_to("Back to All stores", {:action => 'index'}) %></p>
-<p>Name : <%= s.text_field(:name) %></p>
-<p>Address : <%= s.text_field(:address) %></p>
-<p>Pin code : <%= s.text_field(:pin) %></p>
-<p>Phone No. : <%= s.text_field(:phone) %></p>
-<p>Website link : <%= s.text_field(:website) %></p>
-<p>Tags : <%= s.text_field(:tags) %></p>
-<p>City : <%= s.select :city_id, options_for_select(City.all.map{|s|[s.name, s.id]}) %></p>
+<div class="column small-9 spacer">
+  <div class="callout secondary shadow">
+    <div class="row">
+      <div class="small-4 columns">
+        <label class="text-right middle"><%= s.label(:name, "NAME : ") %></label>
+      </div>
+      <div class="small-5 columns">
+        <%= s.text_field (:name) %>
+      </div>
+      <div class="small-2 columns">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-4 columns">
+        <label class="text-right middle"><%= s.label(:address, "ADDRESS : ") %></label>
+      </div>
+      <div class="small-5 columns">
+        <%= s.text_field (:address) %>
+      </div>
+      <div class="small-2 columns">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-4 columns">
+        <label class="text-right middle"><%= s.label(:pin, "PIN CODE : ") %></label>
+      </div>
+      <div class="small-5 columns">
+        <%= s.text_field (:pin) %>
+      </div>
+      <div class="small-2 columns">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-4 columns">
+        <label class="text-right middle"><%= s.label(:phone, "PHONE NUMBER : ") %></label>
+      </div>
+      <div class="small-5 columns">
+        <%= s.text_field (:phone) %>
+      </div>
+      <div class="small-2 columns">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-4 columns">
+        <label class="text-right middle"><%= s.label(:website, "WEBSITE LINK : ") %></label>
+      </div>
+      <div class="small-5 columns">
+        <%= s.text_field (:website) %>
+      </div>
+      <div class="small-2 columns">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-4 columns">
+        <label class="text-right middle"><%= s.label(:tags, "TAGS : ") %></label>
+      </div>
+      <div class="small-5 columns">
+        <%= s.text_field (:tags) %>
+      </div>
+      <div class="small-2 columns">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-4 columns">
+        <label class="text-right middle"><%= s.label(:city_id, "CITY : ") %></label>
+      </div>
+      <div class="small-5 columns">
+        <%= s.select :city_id, options_for_select(City.all.map{|s|[s.name, s.id]}) %>
+      </div>
+      <div class="small-2 columns">
+      </div>
+    </div>
+
+  </div>
+</div>
+<br>
+<br>

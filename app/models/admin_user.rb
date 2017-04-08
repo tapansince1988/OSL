@@ -4,7 +4,7 @@ class AdminUser < ApplicationRecord
     email_regex = /\A[a-zA-Z\d]+([.][a-zA-Z\d]+)*[@]+[a-zA-Z\d]+([.][a-zA-Z\d]+){1,3}+\z/
     name_regex = /\A[ a-zA-Z.']+\z/
 
-    # validates_presence_of :name, :email, :confirm_email, :password, :confirm_password
+    validates_presence_of :name, :email, :password
 
     validates :name,
               :length => {maximum: 50},

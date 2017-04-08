@@ -1,0 +1,49 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--<title><%#= content_for?(:title) ? yield(:title) : "Untitled" %></title>-->
+
+  <%= stylesheet_link_tag    "application", media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track': 'reload' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<style>
+  .shadow {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+</style>
+<div class="off-canvas-wrapper">
+  <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
+
+    <div class="off-canvas-content" data-off-canvas-content>
+      <div class="callout primary">
+        <div class="row column  text-center strong">
+          <h2>Online store listing</h2>
+        </div>
+      </div>
+
+      <div class="column small-9 text-center spacer">
+        <% if !flash[:notice].blank? %>
+            <div class="callout primary"><h5><%= flash[:notice] %></h5></div>
+        <% end %>
+      </div>
+
+      <%= yield %>
+
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+<script>
+  $(document).foundation();
+</script>
+</body>
+</html>
+
+

@@ -1,6 +1,25 @@
-<%= form_for(:store, :url => {:action => "update", :id => @store.id}, :html => {:multipart => true}) do |store| %>
-    <%= render(:partial => 'form', :locals => {:s => store}) %>
-    <p class="text-center">
-      <%= submit_tag("Update") %>
-    </p>
-<% end %>
+<% @page_heading = "Edit Store." %>
+
+<style>
+  .field_with_errors input {
+    border-color: red;
+  }
+</style>
+
+
+<div class="column spacer"><%= link_to("Back to All stores", {:action => 'index'}, :class => "button") %></div>
+
+<div>
+  <%= form_for(:store, :url => {:action => "update", :id => @store.id}, :html => {:multipart => true}) do |store| %>
+      <%= render(:partial => 'form', :locals => {:s => store}) %>
+      <p class="text-center">
+        <%= submit_tag("Update", :class => "button") %>
+      </p>
+      <% if @store.errors.any? %>
+          <% @store.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+          <% end %>
+      <% end %>
+      <p>&nbsp;</p><P>&nbsp;</P>
+  <% end %>
+</div>

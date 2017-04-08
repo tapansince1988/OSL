@@ -1,8 +1,66 @@
-<h4>Are you sure you want to delete the option permanently?</h4><br>
-<p><%= link_to("Back to All stores", {:action => 'index'}) %></p>
-<p>Name : <%= @store.name %></p>
-<p>Address : <%= @store.address %></p>
-<p>Pin code : <%= @store.pin %></p>
-<p>Phone No. : <%= @store.phone %></p>
-<p>Website link : <%= @store.website %></p>
-<%= link_to("Delete", {:action => 'destroy', :id => @store.id}) %><br>
+<% @page_heading = "Delete Store." %>
+
+<div class="column spacer"><%= link_to("Back to All stores", {:action => 'index'}, :class => "button") %></div>
+<div class="column spacer">
+  <div class="callout secondary shadow">
+    <div class="text-center">
+      <h4>Are you sure you want to delete the store permanently?</h4><br>
+
+      <div class="row middle text-center">
+        <div class="small-6 columns">
+          <label class="text-right middle"><%= label_tag(:name, "NAME : ") %></label>
+        </div>
+        <div class="small-6 columns">
+          <label class="text-left middle"><%= @store.name %></label>
+        </div>
+      </div>
+
+      <div class="row middle text-center">
+        <div class="small-6 columns">
+          <label class="text-right middle"><%= label_tag(:address, "ADDRESS : ") %></label>
+        </div>
+        <div class="small-6 columns">
+          <label class="text-left middle"><%= @store.address %></label>
+        </div>
+      </div>
+
+      <div class="row middle text-center">
+        <div class="small-6 columns">
+          <label class="text-right middle"><%= label_tag(:pin, "PIN CODE : ") %></label>
+        </div>
+        <div class="small-6 columns">
+          <label class="text-left middle"><%= @store.pin %></label>
+        </div>
+      </div>
+
+      <div class="row middle text-center">
+        <div class="small-6 columns">
+          <label class="text-right middle"><%= label_tag(:city_id, "CITY : ") %></label>
+        </div>
+        <div class="small-6 columns">
+          <label class="text-left middle"><% if !@store.city.nil? %><%= @store.city.name %><% end %></label>
+        </div>
+      </div>
+
+      <div class="row middle text-center">
+        <div class="small-6 columns">
+          <label class="text-right middle"><%= label_tag(:phone, "PHONE NUMBER : ") %></label>
+        </div>
+        <div class="small-6 columns">
+          <label class="text-left middle"><%= @store.phone %></label>
+        </div>
+      </div>
+
+      <div class="row middle text-center">
+        <div class="small-6 columns">
+          <label class="text-right middle"><%= label_tag(:website, "WEBSITE LINK : ") %></label>
+        </div>
+        <div class="small-6 columns">
+          <label class="text-left middle"><%= @store.website %></label>
+        </div>
+      </div>
+
+      <%= link_to("Delete", {:action => 'destroy', :id => @store.id}, :class => "button") %><br>
+    </div>
+  </div>
+</div>
